@@ -8,12 +8,11 @@ const ResultadoBusqueda = ({item, setMostrarBusqueda, setMovie}) => {
       const fech = await fetch(`https://www.omdbapi.com?i=${id}&apiKey=60e0cb2a`);
       const data = await fech.json();
       if(data.Response === "True"){
-        console.log(data)
         setMostrarBusqueda(item.imdbID);
         setMovie(data)
       }
     } catch (error) {
-      console.log(error)
+      alert(error)
     }
   }
 

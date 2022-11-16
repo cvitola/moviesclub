@@ -27,7 +27,7 @@ const Panel = () => {
         setNoEncontrado("Tú búsqueda no tuvo resultado ☝🏼")
       }
     } catch (error) {
-      console.log(error)
+      alert(error)
       }
     }
 

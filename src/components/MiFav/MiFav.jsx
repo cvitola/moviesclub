@@ -3,12 +3,13 @@ import { DataContext } from '../../DataContextProvider';
 import { Button, Dropdown, Container } from 'react-bootstrap';
 import { FaCalendarAlt, FaChild, FaClock, FaFlag, FaBookOpen, FaUsers} from "react-icons/fa";
 import '../MiFav/MiFav.css';
+import '../../App.css';
 
 const MiFav = ({movie}) => {
     let { favoritos, setFavoritos, misPuntajes, setMisPuntajes } = useContext(DataContext);
     
     const [score, setScore] = useState("");
-
+    const [mensaje, setMensaje] = useState(false);
     const onClickSacar = (id) => {
         const nuevoArray = favoritos?.filter( fav => fav.imdbID !== id);
         setFavoritos(nuevoArray); 
@@ -21,17 +22,21 @@ const MiFav = ({movie}) => {
     }
 
      const onClickGuardar = () => {
-        if(score){
+        console.log(score)
+        if(score && score !== "❗ Tenes que seleccionar un Puntaje"){
             movie.MyScore = score;
             const peli = misPuntajes.filter( m => m.imdbID === movie.imdbID)
             if(peli){
                 const nuevoArray = misPuntajes.filter( m => m.imdbID !== movie.imdbID); //la quito
                 setMisPuntajes([...nuevoArray,movie]); //la agrego modificada.
+                setMensaje(true)
             }else{
                 setMisPuntajes([...misPuntajes,movie]);
             } 
         }else{
-            setScore(" ❗ Tenes que seleccionar un Puntaje")
+            setScore("❗ Tenes que seleccionar un Puntaje")
+            setMensaje("")
+            alert("Seleccióna un Puntaje! 😵")
         }
         
      }
@@ -81,6 +86,8 @@ const MiFav = ({movie}) => {
                 <p>Mi Puntuación: </p>
                 <strong className='fav__puntaje__score'>{movie.MyScore ? movie.MyScore: score}</strong>
             </div>
+            {
+                mensaje ? <p>Listo podes cambiarla 🤙 </p> : ""}
         <Button variant='success' onClick={ () => onClickGuardar()}>Calificar ⭐ </Button>
         <Button variant='danger' onClick={()=>onClickSacar(movie.imdbID)}>Sacar de mis Favs 🗑️ </Button>
             

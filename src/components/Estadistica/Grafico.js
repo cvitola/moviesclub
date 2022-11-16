@@ -36,6 +36,8 @@ const options = {
       }
     },
     y: {
+      min: 0,
+      max: 5,
       display: true,
       title: {
         display: true,
