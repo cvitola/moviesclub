@@ -17,7 +17,7 @@ const Panel = () => {
 
   const handleOnClickObtenerPorTitulo = async(titulo) => {
     try {
-      const fech = await fetch(`http://www.omdbapi.com?s=${titulo}&apiKey=60e0cb2a`);
+      const fech = await fetch(`https://www.omdbapi.com?s=${titulo}&apiKey=60e0cb2a`);
       const data = await fech.json();
       if(data.Response === "True"){
         setResultadoBusqueda(data.Search)

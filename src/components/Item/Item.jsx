@@ -5,7 +5,7 @@ const ResultadoBusqueda = ({item, setMostrarBusqueda, setMovie}) => {
 
   const handleOnClickObtenerPorID = async(id) => {
     try {
-      const fech = await fetch(`http://www.omdbapi.com?i=${id}&apiKey=60e0cb2a`);
+      const fech = await fetch(`https://www.omdbapi.com?i=${id}&apiKey=60e0cb2a`);
       const data = await fech.json();
       if(data.Response === "True"){
         console.log(data)
