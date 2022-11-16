@@ -1,0 +1,64 @@
+@import url("../../App.css");
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap');
+.inicio{
+    /*height: 400px;*/
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    font-family: 'Bowlby One SC', cursive;
+}
+
+.inicio img{
+    width: 70%;
+    padding: 10px;
+    margin: 10px;
+}
+.inicio__titulo{
+    font-family: 'Bowlby One SC', cursive;
+    text-align: center;
+    padding: 20px 0 20px 0;
+    margin: 20px 0 20px 0;
+    font-size: calc(36px + 2vw);
+}
+
+.inicio__empecemos{
+    position: relative;
+}
+
+        
+@media only screen and (max-width: 900px){
+    .inicio{
+        flex-direction: column-reverse;
+    }
+    .inicio img{
+        width: 100%;
+    }
+}
+
+
+
+.globo
+{
+    background: var(--textoGeneral);
+    border-radius: 15px;
+    color: var(--encabezado);
+    padding: 1em;
+    text-align: center;
+    width: 169px;
+    position: absolute;
+    bottom: 42px;
+}
+
+.globo:after
+{
+   bottom: -15px;
+   border-bottom: 8px solid transparent;
+   border-left:8px solid transparent;
+   border-right: 8px solid transparent;
+   border-top: 8px solid var(--textoGeneral);
+   content: " ";
+   position: absolute;
+
+}

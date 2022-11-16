@@ -1,0 +1,52 @@
+.pelicula{
+    display: flex;
+    margin: 15px;
+    padding: 15px;
+    gap: 50px;
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 5px;
+    box-shadow: 1px 1px grey;
+
+}
+
+.pelicula p{
+    margin: 0;
+}
+.fav__puntaje{
+    display: flex;
+    gap: 15px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.pelicula__metadatos{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pelicula__metadatos__grupo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pelicula__metadatos__basicos__alerta{
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: rgba(183, 201, 25, 0.541);
+}
+
+@media only screen and (max-width: 900px){
+    .pelicula{
+        flex-direction: column;
+        width: auto;
+    }
+    .pelicula img{
+        /*width: 50%;*/
+    }
+}

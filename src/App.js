@@ -1,24 +1,37 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { useContext, useEffect} from 'react';
+import { DataContext } from './DataContextProvider';
+import { Container } from 'react-bootstrap';
+import Footer from './components/Footer/Footer';
+import Header from './components/Header/Header';
+import Router from './components/Router/Router';
 
 function App() {
+    //Persistencia de favoritos y puntajes los obtengo del LS...
+    let misfavs = JSON.parse(localStorage.getItem('moviesFav'));
+    if(!misfavs){
+      misfavs = []
+    }
+    let mispjes = JSON.parse(localStorage.getItem('moviesPtjes'));
+    if(!mispjes){
+      mispjes = []
+    }
+
+    //y se lo revoleo al Context
+    const { setFavoritos, setMisPuntajes } = useContext(DataContext);
+    useEffect( () => {
+      setFavoritos(misfavs);
+      setMisPuntajes(mispjes)
+    }, [])
+    
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container className='app-contenedor' fluid>
+      <Header />
+      <Router />
+      <Footer />
+    </Container>
+    
   );
 }
 

@@ -1,0 +1,21 @@
+@import url("../../App.css");
+.footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--encabezado);
+    color: var(--textoHeadYFoot);
+    margin-top: auto;
+  }
+  
+  .footer ul{
+    list-style: none;
+    display: flex;
+  }
+  
+  .footer ul li{
+    padding: 10px;
+    margin: 10px;
+    font-size: 24px;
+    cursor: pointer;
+  }

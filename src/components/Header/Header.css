@@ -1,0 +1,45 @@
+@import url("../../App.css");
+.nav{
+    background-color: var(--encabezado);
+    color: var(--textoHeadYFoot);
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav img{
+    width: 10%;
+    padding: 5px;
+    margin: 5px;
+}
+.nav__botonera{
+    display: flex;
+    align-items: center;
+}
+
+.nav__botonera__item {
+    opacity: 0.7;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+
+}
+.nav__botonera__item p{
+    padding: 0;
+    margin: 0;
+}
+.nav__botonera__item:hover{
+    background-color: var(--textoHeadYFoot);
+    color: var(--encabezado);
+    border-radius: 5px;;
+}
+
+@media only screen and (max-width: 900px){
+    .nav .nav__botonera{
+        flex-direction: column;
+        width: 100%;
+        
+    }
+    .nav img {
+        display: none;
+    }
+}
